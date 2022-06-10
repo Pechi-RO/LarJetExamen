@@ -1,0 +1,5 @@
+1. Pagina index,sin estar logeado con todos los contactos que estén visibles
+2. Al logearnos, vamos a una página index con sólo nuestros contactos, donde podemos modificarlos
+3. user-contactos 1:N contactos-categorias 1:N
+4. Campos importantes de contactos, foreign key con el id del usuario , campo para ver si es privado o publico,
+y bastantes datos referentes a la persona que refiere el contacto.
