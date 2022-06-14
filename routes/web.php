@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ComicController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::controller(ComicController::class)->group(function(){
+    Route::get('/','home');
 });
+
+
 
 Route::middleware([
     'auth:sanctum',
@@ -26,3 +31,18 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+
+//rutas de categorias, acceso concedido solo con verificacion de user
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->resource('categories',CategoryController::class);
+
+//rutas de cursos, accesibles solo con verificacion de user
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->resource('comics',ComicController::class);
