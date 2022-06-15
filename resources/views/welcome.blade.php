@@ -47,7 +47,7 @@
                         @foreach ($comics as $item)
                         <div>
 
-
+@if($item->privado=="NO")
 
 <div class=" items-center bg-white rounded-lg border shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
     <img class="object-cover w-full h-96 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="{{Storage::url($item->image)}}">
@@ -56,12 +56,15 @@
     <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Editorial: {{$item->editorial}}</p>
     <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Nombre del escritor: {{$item->user->name}}</p>
     <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Categoria: {{$item->category->nombre}}</p>
+    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Privado: {{$item->privado}}</p>
+
 
 
     </div>
     </div>
-
+    @endif
                         </div>
+                      
                         @endforeach
 
 

@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ComicController;
 use Illuminate\Support\Facades\Route;
+use App\http\Controllers\ContactoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('Contacto','App\Http\Controllers\ContactoController@index')->name('contacto.index');
+//esta es post porque envia formulario
+Route::post('Contacto','App\Http\Controllers\ContactoController@enviar')->name('contacto.enviar');
 
 Route::controller(ComicController::class)->group(function(){
     Route::get('/','home');
